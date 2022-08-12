@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package taller3_canteras2;
 
 /**
@@ -5,7 +10,7 @@ package taller3_canteras2;
  * @author Viviana Cifuentes
  */
 public class Song {
-     /**
+    /**
       * Identificador de la canción.
       */
      private int id;
@@ -18,13 +23,9 @@ public class Song {
       */
      private int date;
      /**
-      * Duración en minutos de la canción.
+      * Duración de la canción.
       */
-     private int min;
-     /**
-      * Duración en segundos de la canción.
-      */
-     private int seg;
+     private String duration;
      /**
       * Género musical de la canción.
       */
@@ -43,7 +44,6 @@ public class Song {
      */
     public Song() {
     }
-    
     /**
      * Método constuctor parametrizado encargado de recolectar los datos de la clase. 
      * @param id Identificador de la canción.
@@ -55,12 +55,11 @@ public class Song {
      * @param cover Carátula de la canción (en este caso se está agregando las iniciales de cada título).
      * @param shortDescription Descripción corta y relevante de la canción.
      */
-    public Song(int id, String title, int date, int min, int seg, String genre, String cover, String shortDescription) {
+    public Song(int id, String title, int date, String duration, String genre, String cover, String shortDescription) {
         this.id = id;
         this.title = title;
         this.date = date;
-        this.min = min;
-        this.seg = seg;
+        this.duration = duration;
         this.genre = genre;
         this.cover = cover;
         this.shortDescription = shortDescription;
@@ -113,38 +112,23 @@ public class Song {
     public void setDate(int date) {
         this.date = date;
     }
-
+    
     /**
-     * Método para regresar la duración en minutos de la canción.
-     * @return the min
+     * Método para regresar la duración de la canción.
+     * @return 
      */
-    public int getMin() {
-        return min;
+    public String getDuration() {
+        return duration;
     }
 
     /**
-     * Establecer la duración en minutos de la canción.
-     * @param min the min to set
+     * Establecer la duración de la canción.
+     * @param duration
      */
-    public void setMin(int min) {
-        this.min = min;
+    public void setDuration(String duration) {    
+        this.duration = duration;
     }
 
-    /**
-     * Método para regresar la duración en segundos de la canción.
-     * @return the seg
-     */
-    public int getSeg() {
-        return seg;
-    }
-
-    /**
-     * Establecer la duración en segundos de la canción.
-     * @param seg the seg to set
-     */
-    public void setSeg(int seg) {
-        this.seg = seg;
-    }
 
     /**
      * Método para regresar el género de la canción.
@@ -193,7 +177,20 @@ public class Song {
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
-     
     
+    /**
+     * Método encargado de imprimir la información de la fecha en consola.
+     * @return título y fecha de la canción
+     */
+    public String toStringDate() {
+        return title + ", Date: " + date;
+    }
     
+    /**
+     * Método encargado de imprimir la información de la duración en consola.
+     * @return título y duración de la canción
+     */
+    public String toStringDuration() {
+        return title + ", Duration: " + duration;
+    }
 }
